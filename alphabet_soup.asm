@@ -297,7 +297,7 @@ get_world:								# retorna posición de la palabra encontrada
  	syscall
 
  	add $a0, $s2, $zero						
- 	j get_first_letter
+ 	j  restart
 
      
 evaluate_end_text:
@@ -345,7 +345,8 @@ invalid: 								# envia información de que la opción ingresada fue invalida
 	li $v0, 4			
  	la $a0, options
  	syscall
- 		
+ 	
+ restart: 
  	lw $s3, 0($sp) 
     	lw $t1, 4($sp) 
     	lw $t2, 8($sp) 
